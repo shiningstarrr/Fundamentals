@@ -1,7 +1,7 @@
 # Fundamentals
-Golang Fundamental
-## [Naming Convention](#naming-convention-1)
-### [Reference: ](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
+
+### [- Naming Convention](#naming-convention-1)
+### [- Reference: ](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
 
 # Naming Convention
 ## Variables name
@@ -23,4 +23,3 @@ Golang Fundamental
 ## Error 
 - Error variables should have a name starting with “Err” and should be capitalized, for example ErrInvalidInput, ErrNotFound.
 
-## Acronyms
