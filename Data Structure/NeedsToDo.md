@@ -7,6 +7,10 @@
 
 4. understand distributed system
 
+5. how to avoid panic
+
+6. go.uber.org/atomic adds type safety to these operations by hiding the underlying type. 
+
 
 # md file creation:
 - use # as heading 1, ## as heading 2...

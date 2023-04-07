@@ -1,13 +1,18 @@
 # Fundamentals
 
-### [- Naming Convention](#naming-convention-1)
-### [- Reference: ](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
+### [·Naming Convention](#naming-convention-1)
+#### [·Reference: https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
 
 # Naming Convention
 ## Variables name
 - use "_" prefix underscore for variables and constants that are not exported.
 - use variables and constants that are not exported with a lowercase first letter.
 - start with uppercase letter if exported.
+- If variable type is bool, its name should start with Has, Is, Can or Allow, etc.
+
+
+## Constant name
+- constant should use all capital letter and use underscore _ to seperate words.
 
 ## Function name
 - camelCase: Functions should be named using camelCase (un-exported), where the first letter of the first word is lowercase and the first letter of subsequent words is uppercase. For example, “retrieveUser” or “fetchConfigs”.
