@@ -1,8 +1,9 @@
 # Fundamentals
 
-## [Naming Convention | ](#naming-convention-1)[Reference: https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
-## [·Big O Cheet Sheet | ](#big-o-cheet-sheet-1)[Reference: ](https://www.bigocheatsheet.com/)
-
+- [Naming Convention](#naming-convention)
+    - [Reference: https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b](https://medium.com/@func25/naming-convention-in-go-master-the-art-2beb45fba15b)
+- [Big O Cheet Sheet](#big-o-cheet-sheet)
+    - [Reference: https://www.bigocheatsheet.com/pdf/big-o-cheatsheet.pdf](https://www.bigocheatsheet.com/pdf/big-o-cheatsheet.pdf)
 
 
 ## Naming Convention
