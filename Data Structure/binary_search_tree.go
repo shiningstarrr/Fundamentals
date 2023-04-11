@@ -2,15 +2,13 @@
 Binary Search Tree implementation.
 Fast insertion, removal, and lookup of items while offering an efficient way to iterate them in sorted order.
 */
-package main
-
-import "fmt"
+package fundamentals
 
 // Define TreeNode struct with Key, Left and Right
-type TreeNode struct {
+type BSTreeNode struct {
 	Key   int
-	Left  *TreeNode
-	Right *TreeNode
+	Left  *BSTreeNode
+	Right *BSTreeNode
 }
 
 /*
@@ -18,16 +16,16 @@ type TreeNode struct {
  * @Input() - key -> integer
  * TC - O(logn) | SC - O(1)
  */
-func (node *TreeNode) Insert(key int) {
+func (node *BSTreeNode) Insert(key int) {
 	if node.Key < key {
 		if node.Right == nil {
-			node.Right = &TreeNode{Key: key}
+			node.Right = &BSTreeNode{Key: key}
 		} else {
 			node.Right.Insert(key)
 		}
 	} else if node.Key > key {
 		if node.Left == nil {
-			node.Left = &TreeNode{Key: key}
+			node.Left = &BSTreeNode{Key: key}
 		} else {
 			node.Left.Insert(key)
 		}
@@ -40,7 +38,7 @@ func (node *TreeNode) Insert(key int) {
  * @Output() -> Boolean
  * TC - O(logn) | SC - O(1)
  */
-func (node *TreeNode) Search(key int) bool {
+func (node *BSTreeNode) Search(key int) bool {
 	if node == nil {
 		return false
 	}
@@ -52,14 +50,14 @@ func (node *TreeNode) Search(key int) bool {
 	return true
 }
 
-func main() {
-	tree := &TreeNode{Key: 100}
-	tree.Insert(50)
-	tree.Insert(300)
-	tree.Insert(30)
-	tree.Insert(88)
-	tree.Insert(231)
-	fmt.Println("Tree:", *tree)  //{100 0xc00010a000 0xc00010a018}
-	fmt.Println(tree.Search(77)) //false
-	fmt.Println(tree.Search(88)) //true
-}
+// func main() {
+// 	tree := &TreeNode{Key: 100}
+// 	tree.Insert(50)
+// 	tree.Insert(300)
+// 	tree.Insert(30)
+// 	tree.Insert(88)
+// 	tree.Insert(231)
+// 	fmt.Println("Tree:", *tree)  //{100 0xc00010a000 0xc00010a018}
+// 	fmt.Println(tree.Search(77)) //false
+// 	fmt.Println(tree.Search(88)) //true
+// }
