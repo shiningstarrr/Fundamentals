@@ -30,7 +30,8 @@ use --
 ## Data 
 - INSERT INTO cats(name,age) VALUES ('Jetson', 7), ('sadie',3);
 
-## NOT Null values
+## NOT Null Values / Default Values / Keys / Extra
+### Not Null
 - CREATE TABLE [TABLENAME]
     (
        [column_name data_type NOT NULL],
@@ -38,3 +39,28 @@ use --
     );
     
 - INSERT INTO cats(name) VALUES('Jetson'); or INSERT INTO cats() VALUES();
+
+### Default Value
+- CREATE TABLE [TABLENAME]
+    (
+       [column_name data_type DEFAULT [name]],
+       [column_name data_type DEFAULT [name]]
+    );
+
+### Primary Keys
+Each ID needs to be unique.
+- CREATE TABLE [TABLENAME]
+    (
+        [IDNAME] INT NOT NULL PRIMARY KEY,
+        name VARCHAR(100),
+        age INT
+    );
+
+Primary keys cannot be null.
+- CREATE TABLE [TABLENAME]
+    (
+        [IDNAME] INT AUTO_INCREMENT,
+        name VARCHAR(100),
+        age INT,
+        PRIMARY KEY ([IDNAME])
+    );
