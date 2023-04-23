@@ -48,7 +48,6 @@ CREATE TABLE [TABLENAME]
         age INT
     ); 
 
-
 - SHOW TABLES;
 - SHOW COLUMNS FROM [TABLENAME]; Or DESC [TABLENAME];
 - ORDER BY [NAME] DESC;
@@ -68,21 +67,72 @@ use --
 ## Loading sql file
 - source file_name.sql          //Under base command use "mysql -u root -p" to enter mysql
 
-
 ## "Select"
 - SELECT * FROM [TABLENAME];
-- SELECT [NAME],[NAME] FROM [TABLENAME]
-- SELECT * FROM [TABLENAME],[TABLENAME] WHERE age = 4
-- SELECT [NAME] AS [NEWNAME] FROM [TABLENAME]            //This is temporary for changing column name
+- SELECT [NAME],[NAME] FROM [TABLENAME];
+- SELECT * FROM [TABLENAME],[TABLENAME] WHERE age = 4;
+- SELECT [NAME] AS [NEWNAME] FROM [TABLENAME];            //This is temporary for changing column name
 
+### "Select distinct"
+- SELECT DISTINCT [COLUMNNAME] FROM [TABLENAME];          //Avoid duplicate
+### "Order by"
+- SELECT [COLUMNNAME] FROM [TABLENAME] ORDER BY [COLUMNNAME];
+- SELECT [COLUMNNAME] FROM [TABLENAME] ORDER BY [COLUMNNAME] DESC;
+- SELECT [COLUMNAME_1],[COLUMNNAME_2],[COLUMNNAME_3] FROM [TABLENAME] ORDER BY 2,3,4;          //Order by the second column, and then the third, then the fourth one
+### "Limit"
+- SELECT [COLUMNNAME] FROM [TABLENAME] ORDER BY [COLUMNNAME] LIMIT [COUNT];
+- SELECT [COLUMNNAME] FROM [TABLENAME] ORDER BY [COLUMNNAME] LIMIT [STARTPOSITION], [COUNT];   
 ## "Update" 
-- UPDATE [TABLENAME] SET [COLUMNNAME] = 'NEW NAME' WHERE [COLUMNNAME] = 'OLD NAME'
-
+- UPDATE [TABLENAME] SET [COLUMNNAME] = 'NEW NAME' WHERE [COLUMNNAME] = 'OLD NAME';
 ## "Delete"
-- DELETE FROM [TABLENAME] WHERE [COLUMNNAME] = '[ITEMNAME]'
-- DELETE FROM [TABLENAME]           //This will delete whole table
+- DELETE FROM [TABLENAME] WHERE [COLUMNNAME] = '[ITEMNAME]';
+- DELETE FROM [TABLENAME];           //This will delete whole table
 
 
-## "Concat"
-- CONCAT (X,Y,Z)
-- SELECT CONCAT ([COLUMNNAME], '!') FROM [TABLENAME]
+## String functions and operators
+- [String functions ref link: ](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html)
+
+### "Concat"
+- CONCAT (X,Y,Z);
+- SELECT CONCAT ([COLUMNNAME], '!') FROM [TABLENAME];
+- SELECT CONCAT_WS ('-', [COLUMNNAME],[COLUMNNAME]);            //Adds seperator between each element
+- SELECT CONCAT(SUBSTRING(...), SUBSTRING(...)) AS [NAME] FROM [TABLENAME];
+### "Substring"
+- SELECT SUBSTRING ('HELLO WORLD', [START POSITION(int)], [NUMBER OF CHARACTERS (int)]) FROM [TABLENAME];         
+- SELECT SUBSTRING ([STRING], [START POSITION]) FROM [TABLENAME]               //This will go from start position to the end of the string
+- SELECT SUBSTRING ([STRING], -3, 1) FROM [TABLENAME] ;        //Count backwards
+### "Replace"
+- SELECT REPLACE([STR],[FROMSTR], [TOSTR])
+### "Reverse"
+- SELECT REVERSE ([STR]);
+### "Char_length"
+- SELECT CHAR_LENGTH([STR]);
+### "Upper and Lower"
+- SELECT UPPER([STR]);
+- SELECT LOWER([STR]);
+### "Insert"
+- SELECT INSERT([STR],[POS],[LEN],[NEWSTR])        //Len is the number of character to replace
+### "Left, Right, Repeat"
+- SELECT LEFT([STR],[LEN])          //Return the leftmost len characters from str
+- SELECT RIGHT([STR],[LEN])
+- SELECT REPEAT([STR],[COUNT])
+### "Trim"
+- SELECT TRIM('   BAR   ');        //Remove space
+- SELECT TRIM(lEADING 'X' FROM 'XXXBARXXX');
+- SELECT TRIM(BOTH 'X' FROM 'XXXBARXXX');
+- SEELCT TRIM(TRAILING 'XYZ' FROM 'BARXXYZ');
+### "Like"
+- SELECT [COLUMNNAME] FROM [TABLENAME] WHERE [COLUMNNAME] LIKE '%[ANYCHARACTER]%'           //LIKE '_ _ _ _' means four characters
+- WHERE TITLE LIKE '%\%%'          //for searching title with % sign.
+
+
+
+
+## Aggregate functions
+### "Count"
+- SELECT COUNT(*) FROM [TABLENAME];
+- SELECT COUNT(DISTINCT [COLUMNNAME]) FROM [TABLENAME];
+### "Group by"
+- SELECT [COLUMNNAME], COUNT(*) FROM [TABLENAME] GROUP BY [COLUMNNAME];
+### "Min" and "Max"
+
