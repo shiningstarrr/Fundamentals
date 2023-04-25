@@ -53,10 +53,21 @@ CREATE TABLE [TABLENAME]
 - ORDER BY [NAME] DESC;
 - DROP TABLE [TABLENAME];
 
+
 ## Data Type 
-- int
 - varchar([size])
+- char              //has a fixed length
+- tinyint(127), smallint(32767), mediumint(8388607), int(2147483647), bigint(2^63-1)
+- decimal([totalNumberOfDigits], [DigitsAfterDecimal])
+- float (memory needed: 4 Bytes, Precision issues: ~7 digits)
+- double (memory needed: 8 bytes, Precision issues: ~15 digits)
+- date([yyyy-mm-dd]), time([hh:mm:ss]), datetime([yyyy-mm-dd] [hh:mm:ss])
+- SELECT CURDATE();   - SELECT CURTIME();   - SELECT CURRENT_TIMESTAMP() or use NOW();
+
+
+
  
+
 ## Comment
 use -- 
 
