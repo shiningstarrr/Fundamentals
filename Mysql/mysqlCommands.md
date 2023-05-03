@@ -1,5 +1,5 @@
 # Mysql Basic Commands
-
+https://dev.mysql.com/doc/refman/8.0/en/
 ## Databases
 - SHOW DATABASES;
 - CREATE DATABASE [NAME];
@@ -21,16 +21,13 @@ CREATE TABLE [TABLENAME]
        [column_name data_type NOT NULL],
        [column_name data_type NOT NULL]
     );
-    
 - INSERT INTO cats(name) VALUES('Jetson'); or INSERT INTO cats() VALUES();
-
 - Default Value
 CREATE TABLE [TABLENAME]
     (
        [column_name data_type DEFAULT [name]],
        [column_name data_type DEFAULT [name]]
     );
-
 - Primary Keys
 Each ID needs to be unique.
 CREATE TABLE [TABLENAME]
@@ -39,15 +36,13 @@ CREATE TABLE [TABLENAME]
         name VARCHAR(100),
         age INT
     );
-
-Primary keys cannot be null.
+- Primary keys cannot be null.
 CREATE TABLE [TABLENAME]
     (
         [IDNAME] INT AUTO_INCREMENT PRIMARY KEY,        //or use PRIMARY KEY ([IDNAME])
         name VARCHAR(100),
         age INT
     ); 
-
 - SHOW TABLES;
 - SHOW COLUMNS FROM [TABLENAME]; Or DESC [TABLENAME];
 - ORDER BY [NAME] DESC;
@@ -62,11 +57,12 @@ CREATE TABLE [TABLENAME]
 - float (memory needed: 4 Bytes, Precision issues: ~7 digits)
 - double (memory needed: 8 bytes, Precision issues: ~15 digits)
 - date([yyyy-mm-dd]), time([hh:mm:ss]), datetime([yyyy-mm-dd] [hh:mm:ss])
-- SELECT CURDATE();   - SELECT CURTIME();   - SELECT CURRENT_TIMESTAMP() or use NOW();
+- SELECT CURDATE();   - SELECT CURTIME();   - SELECT CURRENT_TIMESTAMP() or use NOW(); 
+- SELECT DATE_FORMAT([COLUMNNAME], '%a, %b, %x') FROM [TABLENAME];
 
 
 
- 
+
 
 ## Comment
 use -- 
@@ -135,7 +131,6 @@ use --
 ### "Like"
 - SELECT [COLUMNNAME] FROM [TABLENAME] WHERE [COLUMNNAME] LIKE '%[ANYCHARACTER]%'           //LIKE '_ _ _ _' means four characters
 - WHERE TITLE LIKE '%\%%'          //for searching title with % sign.
-
 
 
 
