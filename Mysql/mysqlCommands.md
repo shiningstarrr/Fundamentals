@@ -56,12 +56,14 @@ CREATE TABLE [TABLENAME]
 - decimal([totalNumberOfDigits], [DigitsAfterDecimal])
 - float (memory needed: 4 Bytes, Precision issues: ~7 digits)
 - double (memory needed: 8 bytes, Precision issues: ~15 digits)
+### Type of time and date 
+https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
 - date([yyyy-mm-dd]), time([hh:mm:ss]), datetime([yyyy-mm-dd] [hh:mm:ss])
 - SELECT CURDATE();   - SELECT CURTIME();   - SELECT CURRENT_TIMESTAMP() or use NOW(); 
+- SELECT DAYOFMONTH('');  - SELECT DAYOFWEEK('');  - SELECT DAYOFYEAR('');
+- SELECT MONTHNAME('');
 - SELECT DATE_FORMAT([COLUMNNAME], '%a, %b, %x') FROM [TABLENAME];
-
-
-
+- CREATE TABLE [TABLENAME] ([COLUMNNAME] TIMESTAMP DEFAULT CURRENT_TIMESTAMP, [COLUMNAME] TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);      //use update to set up the update timestamp.
 
 
 ## Comment
@@ -73,6 +75,8 @@ use --
 
 ## Loading sql file
 - source file_name.sql          //Under base command use "mysql -u root -p" to enter mysql
+
+
 
 ## "Select"
 - SELECT * FROM [TABLENAME];
@@ -96,9 +100,9 @@ use --
 - DELETE FROM [TABLENAME];           //This will delete whole table
 
 
+
 ## String functions and operators
 - [String functions ref link: ](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html)
-
 ### "Concat"
 - CONCAT (X,Y,Z);
 - SELECT CONCAT ([COLUMNNAME], '!') FROM [TABLENAME];
@@ -152,3 +156,39 @@ use --
 ### "Average"
 - SELECT AVG([COLUMNNAME]);
 - AVG + GROUPBY
+
+
+
+## Logical Operation
+-  !=
+-  WHERE [COLUMNNAME] LIKE/NOLIKE '% %'
+-  > / >=
+-  < / <=
+-  AND (&&)
+-  OR  (||)
+-  BETWEEN [A] AND [B]
+-  CAST([TYPE] AS [ANOTHERTYPE])
+-  WHERE [COLUMNNAME] IN (' ', ' ', ' ');
+-  SELECT [COLUMNNAME],[COLUMNNAME], 
+     CASE WHEN [CONDITION] THEN '[ANYNAME]'
+     ELSE '[ANOTHERNAME]'
+     END AS [NAME]
+   FROM [TABLENAME];
+-  IS NULL
+
+Exercise Example: 
+mysql> select author_fname,author_lname,
+    -> case when count(*) = 1 then '1 book'
+    -> else concat(count(*), 'books')
+    -> end as count from books
+    -> where author_lname is not null
+    -> group by author_fname, author_lname;
+ 
+
+## Constraints
+- UNIQUE   //Example: phoneNumber varchar(15) NOT NULL UNIQUE
+- CHECK    //Example: age int CHECK (age > 18)
+- CONSTRAINT + CHECK     //CONSTRAINT age_not_negative CHECK (age>18)
+- CONSTRAINT [CONSTRAINTNAME] UNIQUE ([COLUMNNAME],[COLUMNNAME])
+- ALTER TABLE [TABLENAME]
+- ALTER TABLE [TABLENAME] ADD COLUMN [COLUMNNAME] [TYPE];
