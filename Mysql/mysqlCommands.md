@@ -21,6 +21,7 @@ CREATE TABLE [TABLENAME]
        [column_name data_type NOT NULL],
        [column_name data_type NOT NULL]
     );
+- IFNULL(A,B)
 - INSERT INTO cats(name) VALUES('Jetson'); or INSERT INTO cats() VALUES();
 - Default Value
 CREATE TABLE [TABLENAME]
@@ -200,5 +201,12 @@ mysql> select author_fname,author_lname,
 
  
 ## Relationships and Joins
+### Cross Join
 - FOREIGN KEY ([columnname]) REFERENCES [tablename][(columnname)];
+- FOREIGN KEY ([columnname]) REFERENCES [tablename][(columnname)] ON DELETE CASCADE;       //Synchronize delete
 - EXAMPLE: select * from orders where customer_id = (select id from customers where last_name = 'George');
+### Inner Join
+- SELECT * FROM [TABLENAME] JOIN [ANOTHER TABLE NAME] ON[TABLENAME].[COLUMNNAME] = [ANOTHER TABLE NAME].[COLUMNNAME];
+### Left Join / Right Join
+- SELECT [COLUMNNAME...] FROM [TABLENAME] LEFT/RIGHT JOIN [ANOTHER TABLE NAME] ON [TABLENAME].[COLUMNNAME] = [ANOTHER TABLE NAME].[COLUMNNAME] ORDER BY [COLUMNNAME];
+- 
