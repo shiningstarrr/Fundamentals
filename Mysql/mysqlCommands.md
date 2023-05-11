@@ -192,3 +192,13 @@ mysql> select author_fname,author_lname,
 - CONSTRAINT [CONSTRAINTNAME] UNIQUE ([COLUMNNAME],[COLUMNNAME])
 - ALTER TABLE [TABLENAME]
 - ALTER TABLE [TABLENAME] ADD COLUMN [COLUMNNAME] [TYPE];
+- ALTER TABLE [TABLENAME] DROP COLUMN [COLUMNNAME] [TYPE];
+- RENAME TABLE [TABLENAME] TO [NEWNAME];
+- ALTER TABLE [TABLENAME] MODIFY [COLUMNNAME] [NEWTYPE];    //change an existing column's type
+- ALTER TABLE [TABLENAME] CHANGE [OLUMNNAME] [NEWTYPE];   //use change to rename and change its data type
+- ALTER TABLE [TABLENAME] ADD CONSTRAINT [NAME] CHECK [CONDITION];
+
+ 
+## Relationships and Joins
+- FOREIGN KEY ([columnname]) REFERENCES [tablename][(columnname)];
+- EXAMPLE: select * from orders where customer_id = (select id from customers where last_name = 'George');
