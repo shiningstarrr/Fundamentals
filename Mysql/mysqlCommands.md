@@ -9,41 +9,19 @@ https://dev.mysql.com/doc/refman/8.0/en/
 
 
 ## Table
-- CREATE TABLE [TABLENAME]
-    (
-        [column_name data_type],
-        [column_name data_type]
-    );
+- CREATE TABLE [TABLENAME]([column_name data_type],[column_name data_type]);
 ### Table with NOT Null Values / Default Values / Keys / Extra
 - Not Null
-CREATE TABLE [TABLENAME]
-    (
-       [column_name data_type NOT NULL],
-       [column_name data_type NOT NULL]
-    );
+CREATE TABLE [TABLENAME]([column_name data_type NOT NULL], [column_name data_type NOT NULL]);
 - IFNULL(A,B)
 - INSERT INTO cats(name) VALUES('Jetson'); or INSERT INTO cats() VALUES();
 - Default Value
-CREATE TABLE [TABLENAME]
-    (
-       [column_name data_type DEFAULT [name]],
-       [column_name data_type DEFAULT [name]]
-    );
+CREATE TABLE [TABLENAME]([column_name data_type DEFAULT [name]],[column_name data_type DEFAULT [name]]);
 - Primary Keys
 Each ID needs to be unique.
-CREATE TABLE [TABLENAME]
-    (
-        [IDNAME] INT NOT NULL PRIMARY KEY,
-        name VARCHAR(100),
-        age INT
-    );
+CREATE TABLE [TABLENAME]([IDNAME] INT NOT NULL PRIMARY KEY,name VARCHAR(100),age INT);
 - Primary keys cannot be null.
-CREATE TABLE [TABLENAME]
-    (
-        [IDNAME] INT AUTO_INCREMENT PRIMARY KEY,        //or use PRIMARY KEY ([IDNAME])
-        name VARCHAR(100),
-        age INT
-    ); 
+CREATE TABLE [TABLENAME]([IDNAME] INT AUTO_INCREMENT PRIMARY KEY,        //or use PRIMARY KEY ([IDNAME])name VARCHAR(100),age INT); 
 - SHOW TABLES;
 - SHOW COLUMNS FROM [TABLENAME]; Or DESC [TABLENAME];
 - ORDER BY [NAME] DESC;
@@ -76,7 +54,6 @@ use --
 
 ## Loading sql file
 - source file_name.sql          //Under base command use "mysql -u root -p" to enter mysql
-
 
 
 ## "Select"
@@ -200,13 +177,24 @@ mysql> select author_fname,author_lname,
 - ALTER TABLE [TABLENAME] ADD CONSTRAINT [NAME] CHECK [CONDITION];
 
  
+
 ## Relationships and Joins
 ### Cross Join
 - FOREIGN KEY ([columnname]) REFERENCES [tablename][(columnname)];
 - FOREIGN KEY ([columnname]) REFERENCES [tablename][(columnname)] ON DELETE CASCADE;       //Synchronize delete
 - EXAMPLE: select * from orders where customer_id = (select id from customers where last_name = 'George');
 ### Inner Join
-- SELECT * FROM [TABLENAME] JOIN [ANOTHER TABLE NAME] ON[TABLENAME].[COLUMNNAME] = [ANOTHER TABLE NAME].[COLUMNNAME];
+- SELECT * FROM [TABLENAME] INNER JOIN [ANOTHER TABLE NAME] ON [TABLENAME].[COLUMNNAME] = [ANOTHER TABLE NAME].[COLUMNNAME] INNER JOIN...;
 ### Left Join / Right Join
 - SELECT [COLUMNNAME...] FROM [TABLENAME] LEFT/RIGHT JOIN [ANOTHER TABLE NAME] ON [TABLENAME].[COLUMNNAME] = [ANOTHER TABLE NAME].[COLUMNNAME] ORDER BY [COLUMNNAME];
-- 
+
+
+
+## Views - save as virtual table
+- CREATE VIEW [VIEWNAME] AS SELECT...
+- CREATE OR REPLACE VIEW [VIEWNAME] AS SELECT...
+- ALTER VIEW [VIEWNAME] AS SELECT...
+- DROP VIEW [VIEWNAME]
+- HAVING [CONDITION] GROUP BY [COLUMNNAME]  // Specifies conditions on groups.  
+  WHERE   // Where clause specifies selection conditions.
+- GROUP BY [COLUMNNAME] WITH ROLLUP    //Display the total value of each group. 
