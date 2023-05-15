@@ -198,3 +198,8 @@ mysql> select author_fname,author_lname,
 - HAVING [CONDITION] GROUP BY [COLUMNNAME]  // Specifies conditions on groups.  
   WHERE   // Where clause specifies selection conditions.
 - GROUP BY [COLUMNNAME] WITH ROLLUP    //Display the total value of each group. 
+### Modes
+- SELECT @@GLOBAL.sql_mode;
+- SELECT @@SESSION.sql_mode;
+- SET GLOBAL sql_mode = 'modes';
+- SET SESSION sql_mode = 'modes';
