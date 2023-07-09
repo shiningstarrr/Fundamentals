@@ -32,3 +32,4 @@
 - Error variables should have a name starting with “Err” and should be capitalized, for example ErrInvalidInput, ErrNotFound.
 
 ## Big O Cheet Sheet
+- Link: https://www.bigocheatsheet.com
